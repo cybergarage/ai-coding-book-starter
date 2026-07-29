@@ -24,7 +24,7 @@ npm test
 npm run build
 ```
 
-`npm test`は、テストファイルがまだ存在しない初期状態でも成功します。自律反復開発では、`templates/common/test.md`に従ってテストを追加します。
+`npm test`は、テストファイルがまだ存在しない初期状態でも成功します。自律反復開発では、配布キットに同梱された`../templates/common/test.md`に従ってテストを追加します。
 
 ## OSによる差異
 

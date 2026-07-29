@@ -10,15 +10,17 @@ fi
 release_ref=$1
 repository_root=$(git rev-parse --show-toplevel)
 output_directory=${2:-"${repository_root}/dist"}
-archive_name="ai-coding-starter-${release_ref}.zip"
+archive_name="ai-coding-book-kit-${release_ref}.zip"
 archive_path="${output_directory}/${archive_name}"
 
 git -C "${repository_root}" rev-parse --verify "${release_ref}^{commit}" >/dev/null
 mkdir -p "${output_directory}"
 git -C "${repository_root}" archive \
   --format=zip \
-  --prefix=ai-coding-starter/ \
+  --prefix=ai-coding-book-kit/ \
   --output="${archive_path}" \
-  "${release_ref}:starter"
+  "${release_ref}" \
+  starter \
+  templates
 
 echo "Created ${archive_path}"

@@ -49,17 +49,17 @@ GitHub Actionsでは、スターターと3方式の完成例に対して同じ�
 
 ## Release用ZIPの作成
 
-書籍の版に対応するタグを指定し、`starter/`だけを含むZIPを作成します。
+書籍の版に対応するタグを指定し、`starter/`と`templates/`を含む配布キットを作成します。
 
 ```console
 ./scripts/create-starter-archive.sh book-YYYYMMDD
 ```
 
-ZIPは`dist/ai-coding-starter-book-YYYYMMDD.zip`として作成されます。スクリプトはGitに記録された内容を対象とするため、未コミットの変更はZIPへ入りません。
+ZIPは`dist/ai-coding-book-kit-book-YYYYMMDD.zip`として作成されます。展開すると、開始点の`starter/`、共通の仕様とテスト仕様、製品別の指示ファイルとプロンプトを同じディレクトリで参照できます。スクリプトはGitに記録された内容を対象とするため、未コミットの変更はZIPへ入りません。
 
 ## 利用方法
 
-書籍の手順では、GitHub Releaseから取得したスターターを方式ごとの作業用ディレクトリへ複製します。書籍から`main`ブランチを直接参照せず、書籍の版に対応したReleaseを使用してください。
+書籍の手順では、GitHub Releaseから取得した配布キットの`starter/`を方式ごとの作業用ディレクトリへ複製し、同梱された`templates/`から方式に応じた文書を配置します。書籍から`main`ブランチを直接参照せず、書籍の版に対応したReleaseを使用してください。
 
 ## ライセンス
 
