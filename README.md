@@ -18,6 +18,7 @@ Claude Code版から制作し、Codex版とGitHub Copilot CLI版へ順次展開�
 .
 ├── starter/       # 各ハンズオンの開始点
 ├── templates/     # 仕様、テスト仕様、進捗、製品別の指示
+├── experiments/   # 実行条件、ログ、検証結果
 └── solutions/     # 実証で作成した完成例
 ```
 
