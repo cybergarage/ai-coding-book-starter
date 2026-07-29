@@ -16,6 +16,7 @@
 ## 許可された確認コマンド
 
 ```console
+npm ci
 npm run typecheck
 npm test
 npm run build

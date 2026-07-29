@@ -45,6 +45,8 @@ npm test
 npm run build
 ```
 
+GitHub Actionsでは、スターターと3方式の完成例に対して同じ確認を実行します。
+
 ## Release用ZIPの作成
 
 書籍の版に対応するタグを指定し、`starter/`だけを含むZIPを作成します。

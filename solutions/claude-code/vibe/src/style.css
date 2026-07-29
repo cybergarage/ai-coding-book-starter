@@ -1,0 +1,149 @@
+:root {
+  color: #172033;
+  background: #f2f5f9;
+  font-family:
+    Inter, "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#app {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+}
+
+.memory-game {
+  width: min(100%, 560px);
+  padding: 24px;
+  border: 1px solid #d8deea;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgb(23 32 51 / 10%);
+}
+
+.memory-game__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.memory-game__header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.memory-game__status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.memory-game__moves {
+  margin: 0;
+  font-size: 1rem;
+  color: #526078;
+}
+
+.memory-game__reset {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #3157c8;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.memory-game__reset:hover {
+  background: #274aad;
+}
+
+.memory-game__reset:active {
+  transform: scale(0.97);
+}
+
+.memory-game__clear {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #e4f7e9;
+  color: #1f7a3d;
+  font-weight: 700;
+  text-align: center;
+}
+
+.memory-game__board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.memory-game__card {
+  aspect-ratio: 1;
+  min-height: 44px;
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  background: #3157c8;
+  color: transparent;
+  font-size: clamp(1.25rem, 6vw, 1.75rem);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.memory-game__card:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.memory-game__card.is-revealed {
+  border: 2px solid #d8deea;
+  background: #ffffff;
+  color: #172033;
+}
+
+.memory-game__card.is-matched {
+  border-color: #8fd6a4;
+  background: #e4f7e9;
+  color: #1f7a3d;
+}
+
+.memory-game__card:disabled {
+  cursor: default;
+}
+
+@media (max-width: 480px) {
+  .memory-game {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .memory-game__board {
+    gap: 6px;
+  }
+}
