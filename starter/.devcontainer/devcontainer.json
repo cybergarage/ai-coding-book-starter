@@ -1,0 +1,16 @@
+{
+  "name": "AI Coding Book Starter",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:4-24-bookworm",
+  "forwardPorts": [
+    5173
+  ],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite development server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "postCreateCommand": "npm ci",
+  "remoteUser": "node",
+  "updateRemoteUserUID": true
+}
