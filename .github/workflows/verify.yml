@@ -8,6 +8,15 @@ permissions:
   contents: read
 
 jobs:
+  configuration:
+    name: Verify configuration files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Check JSON syntax
+        run: jq empty templates/claude-code/devcontainer.json templates/claude-code/settings.json
+
   project:
     name: Verify ${{ matrix.directory }}
     runs-on: ubuntu-latest

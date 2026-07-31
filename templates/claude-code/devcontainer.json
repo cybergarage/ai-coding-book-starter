@@ -1,0 +1,22 @@
+{
+  "name": "AI Coding Book Starter with Claude Code",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:4-24-bookworm",
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "mounts": [
+    "source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume"
+  ],
+  "forwardPorts": [
+    5173
+  ],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite development server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "postCreateCommand": "sudo chown node:node /home/node/.claude && npm ci",
+  "remoteUser": "node",
+  "updateRemoteUserUID": true
+}

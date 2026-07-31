@@ -24,6 +24,8 @@ Claude Code版から制作し、Codex版とGitHub Copilot CLI版へ順次展開�
 
 `solutions/`には、各コーディングエージェントで実際に作成して検証した成果物を追加します。
 
+Claude Code版では、`templates/claude-code/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/claude-code/settings.json`を`starter/.claude/settings.json`へコピーします。Claude Code CLIはDev Containerの構築時に導入されるため、ホストOSへ手動でインストールする必要はありません。
+
 ## スターターの起動
 
 Node.js 24 LTSを使用します。
@@ -35,6 +37,12 @@ npm run dev
 ```
 
 開発サーバーのURLをブラウザで開きます。Dev Containersを利用する場合は、Visual Studio Codeで`starter`ディレクトリを開いてから、`Dev Containers: Reopen in Container`を実行します。
+
+Claude Code版のDev Container設定をコピーした場合は、コンテナを開いた後に次のコマンドでCLIを確認できます。
+
+```console
+claude --version
+```
 
 ## 確認
 

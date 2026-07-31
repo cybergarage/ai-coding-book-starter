@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(npm run typecheck)",
+      "Bash(npm test)",
+      "Bash(npm run build)"
+    ],
+    "deny": [
+      "Bash(npx *)",
+      "Bash(npm install)",
+      "Bash(npm install *)",
+      "Bash(npm run dev)",
+      "Bash(npm run dev *)",
+      "Bash(node *)",
+      "Bash(playwright *)",
+      "Bash(sudo *)",
+      "Bash(lsof *)",
+      "Bash(kill *)",
+      "Bash(xargs *)",
+      "Bash(find ~*)",
+      "Bash(ls *~*)"
+    ],
+    "disableBypassPermissionsMode": "disable"
+  }
+}
