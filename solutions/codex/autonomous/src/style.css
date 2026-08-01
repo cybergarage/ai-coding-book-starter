@@ -1,0 +1,55 @@
+:root {
+  color: #263238;
+  background: #f4efe7;
+  font-family: Inter, "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+button { font: inherit; }
+
+#app {
+  display: grid;
+  min-height: 100vh;
+  padding: 24px;
+  place-items: center;
+}
+
+.game { width: min(100%, 560px); }
+.game__header { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
+.eyebrow { margin: 0 0 4px; color: #9b3d32; font-size: .72rem; font-weight: 800; letter-spacing: .18em; }
+h1 { margin: 0; font-size: clamp(2rem, 10vw, 3.25rem); line-height: 1; }
+.moves { flex: none; margin: 0; font-size: 1rem; }
+.moves strong { display: inline-block; min-width: 2ch; color: #9b3d32; font-size: 1.75rem; text-align: right; }
+.message { min-height: 1.5em; margin: 18px 0 10px; color: #754329; font-weight: 700; text-align: center; }
+
+.board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.card {
+  display: grid;
+  aspect-ratio: 1;
+  min-width: 0;
+  border: 2px solid #263238;
+  border-radius: 14px;
+  background: #354f52;
+  color: #fff;
+  cursor: pointer;
+  place-items: center;
+  box-shadow: 0 4px 0 #263238;
+  font-size: clamp(1.5rem, 8vw, 3rem);
+  transition: transform 120ms ease;
+}
+.card:hover:not(:disabled) { transform: translateY(-2px); }
+.card:focus-visible, .reset:focus-visible { outline: 4px solid #e09f3e; outline-offset: 3px; }
+.card--revealed, .card--pending, .card--matched { background: #fffaf0; color: #263238; }
+.card--pending { border-style: dashed; }
+.card--matched { border-color: #588157; box-shadow: 0 4px 0 #588157; cursor: default; opacity: 1; }
+.reset { display: block; width: 100%; margin-top: 24px; padding: 12px 20px; border: 0; border-radius: 999px; background: #9b3d32; color: #fff; cursor: pointer; font-weight: 700; }
+
+@media (max-width: 400px) {
+  #app { padding: 16px 12px; }
+  .board { gap: 7px; }
+  .card { border-radius: 10px; }
+}
