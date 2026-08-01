@@ -15,7 +15,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
       - name: Check JSON syntax
-        run: jq empty templates/claude-code/devcontainer.json templates/claude-code/settings.json
+        run: >-
+          jq empty
+          templates/claude-code/devcontainer.json
+          templates/claude-code/settings.json
+          templates/codex/devcontainer.json
+          templates/copilot-cli/devcontainer.json
 
   project:
     name: Verify ${{ matrix.directory }}
@@ -28,6 +33,12 @@ jobs:
           - solutions/claude-code/vibe
           - solutions/claude-code/spec-driven
           - solutions/claude-code/autonomous
+          - solutions/codex/vibe
+          - solutions/codex/spec-driven
+          - solutions/codex/autonomous
+          - solutions/copilot-cli/vibe
+          - solutions/copilot-cli/spec-driven
+          - solutions/copilot-cli/autonomous
     defaults:
       run:
         working-directory: ${{ matrix.directory }}

@@ -1,0 +1,166 @@
+:root {
+  color: #202c22;
+  background: #f3f0e6;
+  font-family:
+    Inter, "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#app {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 20px;
+}
+
+.game {
+  width: min(100%, 580px);
+  padding: clamp(20px, 5vw, 36px);
+  border: 1px solid #ddd8c8;
+  border-radius: 28px;
+  background: #fffdf7;
+  box-shadow: 0 20px 50px rgb(57 49 29 / 12%);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #5d7756;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1.1;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.move-count {
+  display: grid;
+  min-width: 76px;
+  min-height: 76px;
+  place-content: center;
+  border-radius: 50%;
+  background: #e8efe2;
+  color: #395333;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.move-count span {
+  margin-top: 4px;
+  font-size: 0.75rem;
+}
+
+.hint,
+.clear-message {
+  min-height: 1.5em;
+  margin: 22px 0 16px;
+  color: #5a6657;
+  font-weight: 600;
+}
+
+.clear-message {
+  color: #41723b;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 2.5vw, 14px);
+}
+
+.card {
+  display: grid;
+  aspect-ratio: 1;
+  min-width: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 16px;
+  background: #7b966f;
+  box-shadow: inset 0 -4px rgb(37 68 35 / 25%);
+  color: #f8f3e9;
+  cursor: pointer;
+  font: inherit;
+  font-size: clamp(1.25rem, 7vw, 2.25rem);
+  font-weight: 800;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.card:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.card:focus-visible,
+.reset-button:focus-visible {
+  outline: 3px solid #dd8438;
+  outline-offset: 3px;
+}
+
+.card.is-flipped,
+.card.is-matched {
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #e4ded0;
+  color: #405c3b;
+}
+
+.card.is-matched {
+  background: #e4f0df;
+  box-shadow: inset 0 0 0 2px #91b587;
+}
+
+.card:disabled {
+  cursor: default;
+}
+
+.reset-button {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 24px;
+  border: 0;
+  border-radius: 14px;
+  background: #405c3b;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.reset-button:hover {
+  background: #304b2c;
+}
+
+@media (max-width: 480px) {
+  #app {
+    padding: 12px;
+  }
+
+  .game {
+    border-radius: 20px;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+}

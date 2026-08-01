@@ -1,0 +1,150 @@
+:root {
+  color: #172033;
+  background: #f2f5f9;
+  font-family:
+    Inter, "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#app {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 16px;
+}
+
+.game {
+  width: min(100%, 540px);
+  padding: clamp(16px, 5vw, 32px);
+  border: 1px solid #d8deea;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgb(23 32 51 / 10%);
+}
+
+.game__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.moves {
+  margin: 0;
+  color: #526078;
+  white-space: nowrap;
+}
+
+.clear-message {
+  margin: 20px 0 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #e7f7ed;
+  color: #14532d;
+  font-weight: 700;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(6px, 2vw, 12px);
+  margin: 24px 0;
+}
+
+.card {
+  display: grid;
+  min-width: 0;
+  min-height: clamp(54px, 18vw, 88px);
+  padding: 6px;
+  place-items: center;
+  border: 2px solid #526078;
+  border-radius: 10px;
+  background: #e9edf5;
+  color: #172033;
+  cursor: pointer;
+  font: inherit;
+}
+
+.card:hover:not(:disabled) {
+  border-color: #3157c8;
+}
+
+.card:focus-visible,
+.reset-button:focus-visible {
+  outline: 3px solid #e87912;
+  outline-offset: 2px;
+}
+
+.card--face-up {
+  border-color: #3157c8;
+  background: #eef3ff;
+}
+
+.card--matched {
+  border-style: dashed;
+  border-color: #15803d;
+  background: #e7f7ed;
+}
+
+.card:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.card__symbol {
+  font-size: clamp(1.25rem, 7vw, 2.25rem);
+  line-height: 1;
+}
+
+.card__status {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.reset-button {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: #3157c8;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.reset-button:hover {
+  background: #2547a8;
+}
+
+@media (max-width: 359px) {
+  #app {
+    padding: 8px;
+  }
+
+  .game {
+    padding: 12px;
+  }
+
+  .game__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
