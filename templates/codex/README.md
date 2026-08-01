@@ -16,3 +16,5 @@ cp templates/codex/.codex/config.toml starter/.codex/config.toml
 - Loop Engineering: `spec.md`、`test.md`、`progress.md`
 
 `starter/`を独立したGitリポジトリとして初期化し、開始状態をコミットしてからDev Containerを開きます。Codex CLIの認証情報は`starter/`へ保存せず、Dev Container設定で作成するDockerボリュームに保存します。
+
+Dev Containerの`--security-opt=seccomp=unconfined`は、Codexがコンテナ内でLinuxサンドボックスを作成するために必要です。Codex自体の既定値は`workspace-write`と`on-request`のまま使用し、`danger-full-access`や`--yolo`は使用しません。
