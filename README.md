@@ -28,6 +28,8 @@ Claude Code版では、`templates/claude-code/devcontainer.json`を`starter/.dev
 
 Codex版では、`templates/codex/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/codex/AGENTS.md`を`starter/AGENTS.md`へ、`templates/codex/.codex/config.toml`を`starter/.codex/config.toml`へコピーします。Codex CLIはDev Containerの構築時に固定バージョンを導入し、認証情報はGitで管理しないDockerボリュームへ保存します。
 
+GitHub Copilot CLI版では、`templates/copilot-cli/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/copilot-cli/.github/copilot-instructions.md`を`starter/.github/copilot-instructions.md`へコピーします。GitHub Copilot CLIはDev Containerの構築時に固定バージョンを導入し、認証情報とセッションはGitで管理しないDockerボリュームへ保存します。
+
 ## スターターの起動
 
 Node.js 24 LTSを使用します。
@@ -51,6 +53,12 @@ Codex版のDev Container設定をコピーした場合は、次のコマンド�
 ```console
 codex --version
 codex login status
+```
+
+GitHub Copilot CLI版のDev Container設定をコピーした場合は、次のコマンドでCLIを確認できます。
+
+```console
+copilot --version
 ```
 
 ## 確認
