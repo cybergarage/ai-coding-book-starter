@@ -26,6 +26,8 @@ Claude Code版から制作し、Codex版とGitHub Copilot CLI版へ順次展開�
 
 Claude Code版では、`templates/claude-code/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/claude-code/settings.json`を`starter/.claude/settings.json`へコピーします。Claude Code CLIはDev Containerの構築時に導入されるため、ホストOSへ手動でインストールする必要はありません。
 
+Codex版では、`templates/codex/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/codex/AGENTS.md`を`starter/AGENTS.md`へ、`templates/codex/.codex/config.toml`を`starter/.codex/config.toml`へコピーします。Codex CLIはDev Containerの構築時に固定バージョンを導入し、認証情報はGitで管理しないDockerボリュームへ保存します。
+
 ## スターターの起動
 
 Node.js 24 LTSを使用します。
@@ -44,6 +46,13 @@ Claude Code版のDev Container設定をコピーした場合は、コンテナ�
 claude --version
 ```
 
+Codex版のDev Container設定をコピーした場合は、次のコマンドでCLIと認証状態を確認できます。
+
+```console
+codex --version
+codex login status
+```
+
 ## 確認
 
 ```console
@@ -55,19 +64,30 @@ npm run build
 
 GitHub Actionsでは、スターターと3方式の完成例に対して同じ確認を実行します。
 
-## Release用ZIPの作成
+## 固定版の取得
 
-書籍の版に対応するタグを指定し、`starter/`と`templates/`を含む配布キットを作成します。
+読者向けの標準手順では、書籍に対応するタグを指定してリポジトリをクローンします。方式ごとにクローン先を分け、その中の`starter/`を独立したGitリポジトリとして初期化します。
 
 ```console
-./scripts/create-starter-archive.sh book-YYYYMMDD
+git clone --branch book-PRODUCT-YYYYMMDD --single-branch \
+  https://github.com/cybergarage/ai-coding-book-samples.git PRODUCT-vibe
 ```
 
-ZIPは`dist/ai-coding-book-kit-book-YYYYMMDD.zip`として作成されます。展開すると、開始点の`starter/`、共通の仕様とテスト仕様、製品別の指示ファイルとプロンプトを同じディレクトリで参照できます。スクリプトはGitに記録された内容を対象とするため、未コミットの変更はZIPへ入りません。
+出版用タグには製品名と日付を含めます。`main`ブランチは次の版の制作で変更されるため、書籍の再現手順から直接参照しません。
+
+## Release用ZIPの作成
+
+必要に応じて、書籍の版に対応するタグから`starter/`と`templates/`を含む配布キットを作成できます。読者向けの標準手順は固定タグを指定した`git clone`であり、このZIPの事前取得を前提にしません。
+
+```console
+./scripts/create-starter-archive.sh book-PRODUCT-YYYYMMDD
+```
+
+ZIPは`dist/ai-coding-book-kit-book-PRODUCT-YYYYMMDD.zip`として作成されます。展開すると、開始点の`starter/`、共通の仕様とテスト仕様、製品別の指示ファイルとプロンプトを同じディレクトリで参照できます。スクリプトはGitに記録された内容を対象とするため、未コミットの変更はZIPへ入りません。
 
 ## 利用方法
 
-書籍の手順では、GitHub Releaseから取得した配布キットの`starter/`を方式ごとの作業用ディレクトリへ複製し、同梱された`templates/`から方式に応じた文書を配置します。書籍から`main`ブランチを直接参照せず、書籍の版に対応したReleaseを使用してください。
+書籍の手順では、製品と方式ごとに固定タグを指定してクローンし、クローン内の`templates/`から方式に応じた文書を`starter/`へ配置します。その後、`starter/`を独立したGitリポジトリとして初期化し、コーディングエージェントによる変更だけを確認できる状態にします。
 
 ## ライセンス
 

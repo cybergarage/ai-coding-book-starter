@@ -1,0 +1,19 @@
+{
+  "name": "AI Coding Book Starter with Codex",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:4-24-bookworm",
+  "mounts": [
+    "source=codex-config-${devcontainerId},target=/home/node/.codex,type=volume"
+  ],
+  "forwardPorts": [
+    5173
+  ],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite development server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "postCreateCommand": "sudo chown node:node /home/node/.codex && sudo npm install --global @openai/codex@0.145.0 && npm ci",
+  "remoteUser": "node",
+  "updateRemoteUserUID": true
+}
