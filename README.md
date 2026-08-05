@@ -82,7 +82,7 @@ GitHub Actionsでは、スターターと3方式の完成例に対して同じ�
 
 ```console
 git clone --branch book-PRODUCT-YYYYMMDD --single-branch \
-  https://github.com/cybergarage/ai-coding-book-samples.git PRODUCT-vibe
+  https://github.com/cybergarage/ai-coding-book-starter.git PRODUCT-vibe
 ```
 
 出版用タグには製品名と日付を含めます。`main`ブランチは次の版の制作で変更されるため、書籍の再現手順から直接参照しません。
