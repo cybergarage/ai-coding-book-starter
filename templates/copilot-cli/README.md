@@ -19,9 +19,9 @@ cp templates/copilot-cli/.github/copilot-instructions.md starter/.github/copilot
 コンテナ内では次のコマンドでCLIを起動します。
 
 ```console
-copilot --experimental --disallow-temp-dir
+copilot --disallow-temp-dir
 ```
 
 初回は`/login`でGitHubへサインインし、現在の`starter`を信頼することを確認します。`/instructions`で`.github/copilot-instructions.md`が読み込まれたことを確認します。
 
-ローカルサンドボックスは実験的機能です。`/sandbox enable`で有効にし、作業ディレクトリ外とネットワークを制限します。Dev Containerの`--security-opt=seccomp=unconfined`は、Linux上でbubblewrapを使う内側のサンドボックスに必要です。CLI自身の通常の承認は残し、`--allow-all`、`--allow-all-tools`、`--allow-all-paths`、`--allow-all-urls`、`--yolo`は使用しません。
+Dev Container内でもCLI自身の通常の承認を残し、必要な範囲だけを許可します。`--allow-all`、`--allow-all-tools`、`--allow-all-paths`、`--allow-all-urls`、`--yolo`は使用しません。`starter/`はホストOSと共有されるため、作業後は`git status --short`と`git diff`で変更を確認します。
