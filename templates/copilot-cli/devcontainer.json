@@ -4,9 +4,6 @@
   "mounts": [
     "source=copilot-cli-config-${devcontainerId},target=/home/node/.copilot,type=volume"
   ],
-  "runArgs": [
-    "--security-opt=seccomp=unconfined"
-  ],
   "forwardPorts": [
     5173
   ],
