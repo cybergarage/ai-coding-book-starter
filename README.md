@@ -1,105 +1,111 @@
-# AIコーディング入門 サンプルプロジェクト
+# AIコーディングエージェント入門シリーズ
 
-AIコーディング入門シリーズで使用するスターターキット、文書テンプレート、完成例を管理するリポジトリです。
+Claude Code、Codex、GitHub Copilot CLIを、実際にゲームを作りながら学ぶKindle書籍シリーズの公式サンプルリポジトリです。
 
-現在は書籍制作中のため、内容とディレクトリ構成が変更される可能性があります。書籍出版時に、書籍の版へ対応するGitHub Releaseを公開します。
+同じ神経衰弱ゲームを、Vibe Coding、仕様駆動開発（SDD）、Loop Engineeringの3つの開発スタイルで実装します。完成したコードだけでなく、AIへの指示、仕様、テスト、権限、停止条件まで比較し、「どこまでAIに任せ、どこを人が確認するか」を具体的に身につけられます。
 
-## 開発ブランチ
+<table>
+  <tr>
+    <td width="33%" align="center">
+      <a href="https://www.amazon.co.jp/dp/B0HDSXVMHV"><img src="docs/images/books/claude-code-cover.png" alt="Claude Code入門の表紙" width="280"></a>
+    </td>
+    <td width="33%" align="center">
+      <a href="https://www.amazon.co.jp/dp/B0HDSFVD4D"><img src="docs/images/books/codex-cover.png" alt="Codex入門の表紙" width="280"></a>
+    </td>
+    <td width="33%" align="center">
+      <a href="https://www.amazon.co.jp/dp/B0HDVS6QNX"><img src="docs/images/books/github-copilot-cli-cover.png" alt="GitHub Copilot CLI入門の表紙" width="280"></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Claude Code入門</strong><br><a href="https://www.amazon.co.jp/dp/B0HDSXVMHV">Amazonで見る</a></td>
+    <td align="center"><strong>Codex入門</strong><br><a href="https://www.amazon.co.jp/dp/B0HDSFVD4D">Amazonで見る</a></td>
+    <td align="center"><strong>GitHub Copilot CLI入門</strong><br><a href="https://www.amazon.co.jp/dp/B0HDVS6QNX">Amazonで見る</a></td>
+  </tr>
+</table>
 
-サンプルの開発と検証は`main`ブランチで行います。製品別の長期ブランチは作成せず、Claude Code、Codex、GitHub Copilot CLIのテンプレート、実証記録、完成例を`main`でまとめて管理します。読者へ配布する版は、`main`の検証済みコミットへ製品別の固定タグを付けて作成します。
+## 3つの開発スタイルを、同じ題材で比べる
 
-## 対象書籍
+本シリーズでは、16枚のカードを使う神経衰弱を3通りの進め方で作ります。題材と完成条件をそろえているため、AIコーディングの進め方によって、指示、成果物、人の役割がどう変わるかを比較できます。
 
-- Claude Code入門
-- Codex入門
-- GitHub Copilot CLI入門
+| 開発スタイル | 進め方 | 体験できること |
+| --- | --- | --- |
+| Vibe Coding | 自然言語の指示から実装を始める | 素早く形にする方法と、曖昧な指示を修正する判断 |
+| 仕様駆動開発（SDD） | 仕様を確認してから実装する | 仕様と実装を照合し、手戻りを抑える方法 |
+| Loop Engineering | 仕様、テスト、進捗を使って実装と検証を繰り返す | 完了条件と停止条件を与えて、自律反復開発を管理する方法 |
 
-Claude Code版から制作し、Codex版とGitHub Copilot CLI版へ順次展開します。
+## このシリーズで学べること
 
-## ディレクトリ
+- 自然言語のプロンプトから、動くWebアプリケーションを作る手順
+- Planモードで実装前に仕様と作業範囲を確認する方法
+- 仕様書、テスト仕様、進捗記録をAIと人の共通言語にする方法
+- 型検査、単体テスト、ビルド、ブラウザ操作で結果を検証する方法
+- 権限確認、許可コマンド、停止条件を使って実行範囲を管理する方法
+- 生成結果をうのみにせず、差分と動作から採用可否を判断する方法
+
+## どの本を選ぶか
+
+3冊は同じ題材と開発スタイルを扱いながら、起動方法、Planモード、権限、指示ファイル、プロンプトを製品ごとに解説しています。普段使う、またはこれから試したいAIコーディングエージェントの版を選んでください。
+
+- **[Claude Code入門](https://www.amazon.co.jp/dp/B0HDSXVMHV)** — Claude CodeでAIコーディングを始めたい方へ
+- **[Codex入門](https://www.amazon.co.jp/dp/B0HDSFVD4D)** — Codexで計画、実装、検証の流れを学びたい方へ
+- **[GitHub Copilot CLI入門](https://www.amazon.co.jp/dp/B0HDVS6QNX)** — GitHub Copilot CLIを開発ワークフローへ取り入れたい方へ
+
+プログラミングの基礎知識があり、AIコーディングエージェントを初めて実務的に試す技術者を想定しています。
+
+## このリポジトリに含まれるもの
 
 ```text
 .
-├── starter/       # 各ハンズオンの開始点
+├── starter/       # 3つの開発スタイルで共通する開始点
 ├── templates/     # 仕様、テスト仕様、進捗、製品別の指示
-├── experiments/   # 実行条件、ログ、検証結果
-└── solutions/     # 実証で作成した完成例
+├── solutions/     # 各製品・各方式で実際に作成した完成例
+├── experiments/   # 実行条件、追加指示、停止理由、検証記録
+└── scripts/       # 配布物を確認・作成する補助スクリプト
 ```
 
-`solutions/`には、各コーディングエージェントで実際に作成して検証した成果物を追加します。
+完成例は、方式ごとの差を均一化した模範解答ではありません。各AIコーディングエージェントへ実際に指示し、修正と検証を行った結果をそのまま比較できる教材です。
 
-Claude Code版では、`templates/claude-code/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/claude-code/settings.json`を`starter/.claude/settings.json`へコピーします。Claude Code CLIはDev Containerの構築時に導入されるため、ホストOSへ手動でインストールする必要はありません。
+## すぐに試す
 
-Codex版では、`templates/codex/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/codex/AGENTS.md`を`starter/AGENTS.md`へ、`templates/codex/.codex/config.toml`を`starter/.codex/config.toml`へコピーします。Codex CLIはDev Containerの構築時に固定バージョンを導入し、認証情報はGitで管理しないDockerボリュームへ保存します。
+Visual Studio Code、Dev Containers、Dockerを利用します。開発環境はNode.js 24、TypeScript、HTML/CSS、Vite、Vitestを基本としています。
 
-GitHub Copilot CLI版では、`templates/copilot-cli/devcontainer.json`を`starter/.devcontainer/devcontainer.json`へ、`templates/copilot-cli/.github/copilot-instructions.md`を`starter/.github/copilot-instructions.md`へコピーします。GitHub Copilot CLIはDev Containerの構築時に固定バージョンを導入し、認証情報とセッションはGitで管理しないDockerボリュームへ保存します。
-
-## スターターの起動
-
-Node.js 24 LTSを使用します。
+まず、`main`ブランチの最新版をShallow Cloneします。
 
 ```console
-cd starter
+git clone --depth 1 https://github.com/cybergarage/ai-coding-book-starter.git
+cd ai-coding-book-starter
+```
+
+書籍の手順に従って、使用する製品と開発スタイルに対応するファイルを`templates/`から`starter/`へ配置します。各方式を比較する場合は、方式ごとに別のディレクトリへクローンすると、同じ開始状態を保てます。
+
+スターターだけを動かす場合は、Visual Studio Codeで`starter/`を開き、`Dev Containers: Reopen in Container`を実行してから、次のコマンドを使用します。
+
+```console
 npm ci
 npm run dev
 ```
 
-開発サーバーのURLをブラウザで開きます。Dev Containersを利用する場合は、Visual Studio Codeで`starter`ディレクトリを開いてから、`Dev Containers: Reopen in Container`を実行します。
-
-Claude Code版のDev Container設定をコピーした場合は、コンテナを開いた後に次のコマンドでCLIを確認できます。
+実装後は、次のコマンドで型、テスト、ビルドを確認できます。
 
 ```console
-claude --version
-```
-
-Codex版のDev Container設定をコピーした場合は、次のコマンドでCLIと認証状態を確認できます。
-
-```console
-codex --version
-codex login status
-```
-
-GitHub Copilot CLI版のDev Container設定をコピーした場合は、次のコマンドでCLIを確認できます。
-
-```console
-copilot --version
-```
-
-## 確認
-
-```console
-cd starter
 npm run typecheck
 npm test
 npm run build
 ```
 
-GitHub Actionsでは、スターターと3方式の完成例に対して同じ確認を実行します。
+GitHub Actionsでも、スターターと各完成例に対して同じ確認を実行しています。
 
-## 固定版の取得
+## 書籍とサンプルの役割
 
-読者向けの標準手順では、書籍に対応するタグを指定してリポジトリをクローンします。方式ごとにクローン先を分け、その中の`starter/`を独立したGitリポジトリとして初期化します。
+このリポジトリには、すぐ試せる開始点、テンプレート、完成コード、検証記録を収録しています。書籍では、それらを使う順序、AIへ渡すプロンプトの意図、応答を評価する基準、権限確認、トラブルへの対処を手順に沿って解説します。
 
-```console
-git clone --branch book-PRODUCT-YYYYMMDD --single-branch \
-  https://github.com/cybergarage/ai-coding-book-starter.git PRODUCT-vibe
-```
+コードを見るだけでなく、自分で指示し、比較し、検証するところまで体験したい方は、利用する製品の書籍と一緒に進めてください。
 
-出版用タグには製品名と日付を含めます。`main`ブランチは次の版の制作で変更されるため、書籍の再現手順から直接参照しません。
+## 書籍を購入する
 
-## Release用ZIPの作成
-
-必要に応じて、書籍の版に対応するタグから`starter/`と`templates/`を含む配布キットを作成できます。読者向けの標準手順は固定タグを指定した`git clone`であり、このZIPの事前取得を前提にしません。
-
-```console
-./scripts/create-starter-archive.sh book-PRODUCT-YYYYMMDD
-```
-
-ZIPは`dist/ai-coding-book-kit-book-PRODUCT-YYYYMMDD.zip`として作成されます。展開すると、開始点の`starter/`、共通の仕様とテスト仕様、製品別の指示ファイルとプロンプトを同じディレクトリで参照できます。スクリプトはGitに記録された内容を対象とするため、未コミットの変更はZIPへ入りません。
-
-## 利用方法
-
-書籍の手順では、製品と方式ごとに固定タグを指定してクローンし、クローン内の`templates/`から方式に応じた文書を`starter/`へ配置します。その後、`starter/`を独立したGitリポジトリとして初期化し、コーディングエージェントによる変更だけを確認できる状態にします。
+- [Claude Code入門 — Amazon Kindle](https://www.amazon.co.jp/dp/B0HDSXVMHV)
+- [Codex入門 — Amazon Kindle](https://www.amazon.co.jp/dp/B0HDSFVD4D)
+- [GitHub Copilot CLI入門 — Amazon Kindle](https://www.amazon.co.jp/dp/B0HDVS6QNX)
 
 ## ライセンス
 
